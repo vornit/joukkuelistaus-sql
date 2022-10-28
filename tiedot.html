@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Muuta tietoja</title>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/tiedot.css') }}"></link>
+</head>
+
+<body>
+
+<div class="navigointi">
+<p><p>Kilpailu: {{session['kirjautuneenKilpailunNimi']}}</p>
+<p>Alkamisaika: {{session['kirjautuneenKilpailunAlkuaika']}}</p>
+<p><a href="/tiedot">{{session['kirjautuneenNimi']}}</a></p>
+<p><a href="/listaus">Joukkuelistaus</a></p>
+</div>
+
+<h1>Muuta tietoja</h1>
+<form action="{{request.base_url}}" method="POST">
+
+{{ form.sarjanapit }}
+<div class="tietokentta"><p>{{form.nimi.label}}{{ form.nimi }}</p><p class="virhe">{% for error in form.nimi.errors %} {{ error|e }} {% endfor %}</p></div>
+<div class="tietokentta"><p>{{form.jasen1.label}}{{ form.jasen1 }}</p><p class="virhe">{% for error in form.jasen1.errors %} {{ error|e }} {% endfor %}</p></div>
+<div class="tietokentta"><p>{{form.jasen2.label}}{{ form.jasen2 }}</p><p class="virhe">{% for error in form.jasen2.errors %} {{ error|e }} {% endfor %}</p></div>
+<div class="tietokentta"><p>{{form.jasen3.label}}{{ form.jasen3 }}</p><p class="virhe">{% for error in form.jasen3.errors %} {{ error|e }} {% endfor %}</p></div>
+<div class="tietokentta"><p>{{form.jasen4.label}}{{ form.jasen4 }}</p><p class="virhe">{% for error in form.jasen4.errors %} {{ error|e }} {% endfor %}</p></div>
+<div class="tietokentta"><p>{{form.jasen5.label}}{{ form.jasen5 }}</p><p class="virhe">{% for error in form.jasen5.errors %} {{ error|e }} {% endfor %}</p></div>
+<p><input type="submit" name="laheta" value="Lähetä" /></p>
+
+</form>
+
+</body>

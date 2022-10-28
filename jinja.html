@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Reseptit</title>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/tiedot.css') }}"></link>
+</head>
+
+<body>
+
+<form action="{{request.base_url}}" method="POST">
+
+<label for="kisanimet" name="kisanimet2">Valitse kilpailu:</label>
+<select name="kisanimet">
+{%for r in kisanimet:%}
+<option value="{{r['id']}}">{{r['kisanimi']}}, {{r['vuosi']}}</option>
+{%endfor%}
+</select>
+
+<p><label>Joukkue <input type="text" name="joukkue" /></label></p>
+<p><label>Salasana <input type="password" name="salasana" /></label></p>
+
+<p><input type="submit" name="laheta" value="Kirjaudu" /></p>
+
+</form>
+
+<p class="virhe">{{teksti}}</p>
+
+
+</body>
+
+</html>

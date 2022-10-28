@@ -1,0 +1,10 @@
+.virhe {
+    color: red;
+    margin-left: 5px;
+}
+  
+  .tietokentta {
+    margin-left: 500px;
+    position: relative;
+    display: flex;
+  }

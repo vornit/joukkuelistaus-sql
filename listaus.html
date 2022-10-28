@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Joukkuelistaus</title>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/tiedot.css') }}"></link>
+</head>
+
+<body>
+
+<div class="navigointi">
+<p><p>Kilpailu: {{session['kirjautuneenKilpailunNimi']}}</p>
+<p>Alkamisaika: {{session['kirjautuneenKilpailunAlkuaika']}}</p>
+<p><a href="/tiedot">{{session['kirjautuneenNimi']}}</a></p>
+<p><a href="/listaus">Joukkuelistaus</a></p>
+</div>
+
+<h1>Joukkuelistaus</h1>
+<ul>
+{% for r in kaikkienSarjojenJoukkueet %}
+<li>{{r[0]['sarjanimi']}}
+<ul>
+{% for s in r %}
+<li>{{s['joukkuenimi']}}
+<ul>
+{% for t in s['jasenet'] %}
+<li>{{t}}</li>
+{%endfor%}
+</ul>
+</li>
+{%endfor%}
+</ul>
+</li>
+{%endfor%}
+</ul>
+</body>
